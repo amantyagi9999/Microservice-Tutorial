@@ -1,0 +1,11 @@
+build:
+  version: "QA1.0"
+
+accounts:
+  message: "Welcome to AmanBank Account QA Version"
+  contact:
+    name: "Aman Tyagi"
+    email: "Test@email.com"
+  onCallSupport:
+    -1234567
+    -44644444

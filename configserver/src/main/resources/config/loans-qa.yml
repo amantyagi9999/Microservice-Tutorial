@@ -1,0 +1,11 @@
+build:
+  version: "QA1.0"
+
+loans:
+  message: "Welcome to AmanBank Loans QA Version"
+  contact:
+    name: "Aman Tyagi"
+    email: "Test@email.com"
+  onCallSupport:
+    -1234567
+    -44644444

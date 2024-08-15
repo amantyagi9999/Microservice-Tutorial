@@ -1,0 +1,11 @@
+build:
+  version: "Prod1.0"
+
+loans:
+  message: "Welcome to AmanBank Loans Prod Version"
+  contact:
+    name: "Aman Tyagi"
+    email: "Test@email.com"
+  onCallSupport:
+    -1234567
+    -44644444

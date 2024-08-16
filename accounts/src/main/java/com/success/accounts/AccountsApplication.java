@@ -1,6 +1,6 @@
 package com.success.accounts;
 
-import com.success.accounts.dto.AccountPropertyDto;
+import com.success.accounts.dto.AccountsPropertyDto;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing(auditorAwareRef = "auditAwareImpl")
-@EnableConfigurationProperties(value = {AccountPropertyDto.class})
+@EnableConfigurationProperties(value = {AccountsPropertyDto.class})
 @OpenAPIDefinition(
         info = @Info(
                 title = "Accounts MS REST API Documentation",

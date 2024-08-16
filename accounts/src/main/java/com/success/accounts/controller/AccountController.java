@@ -1,7 +1,7 @@
 package com.success.accounts.controller;
 
 import com.success.accounts.constants.AccountsConstants;
-import com.success.accounts.dto.AccountPropertyDto;
+import com.success.accounts.dto.AccountsPropertyDto;
 import com.success.accounts.dto.CustomerDto;
 import com.success.accounts.dto.ResponseDto;
 import com.success.accounts.service.IAccountsService;
@@ -29,7 +29,7 @@ public class AccountController {
     private Environment environment;
 
     @Autowired
-    private AccountPropertyDto accountPropertyDto;
+    private AccountsPropertyDto accountPropertyDto;
 
     @Value("${build.version}")
     private String buildVersion;
@@ -90,7 +90,7 @@ public class AccountController {
     }
 
     @GetMapping("/account-property-info")
-    public ResponseEntity<AccountPropertyDto> getAccountPropertyConfig() {
+    public ResponseEntity<AccountsPropertyDto> getAccountPropertyConfig() {
         return ResponseEntity.status(HttpStatus.OK).body(accountPropertyDto);
     }
 }

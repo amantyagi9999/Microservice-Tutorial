@@ -8,6 +8,8 @@ import com.success.loans.service.LoansService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -22,9 +24,11 @@ import org.springframework.web.bind.annotation.*;
         description = "CRUD REST APIs in AmanBAnk to CREATE, UPDATE, FETCH AND DELETE loan details"
 )
 @RestController
-@RequestMapping(path="/", produces = (MediaType.APPLICATION_JSON_VALUE))
+@RequestMapping(path="/api", produces = (MediaType.APPLICATION_JSON_VALUE))
 @Validated
 public class LoansController {
+
+    private static final Logger logger = LoggerFactory.getLogger(LoansController.class);
     @Value("${build.version}")
     private String buildVersion;
     @Autowired
@@ -42,9 +46,10 @@ public class LoansController {
                 .body(new ResponseDto(LoansConstants.STATUS_201, LoansConstants.MESSAGE_201));
     }
     @GetMapping("/fetch")
-    public ResponseEntity<LoansDto> fetchLoanDetails(@RequestParam
+    public ResponseEntity<LoansDto> fetchLoanDetails(@RequestHeader("eazybank-correlation-id") String correlationId,@RequestParam
                                                      @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile number must be 10 digits")
                                                      String mobileNumber) {
+        logger.debug("eazyBank-correlation-id found: {} ", correlationId);
         LoansDto loansDto = loansService.fetchLoan(mobileNumber);
         return ResponseEntity.status(HttpStatus.OK).body(loansDto);
     }
